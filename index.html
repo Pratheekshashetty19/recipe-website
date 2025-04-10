@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport"content="width=device-width,initial-scale=1.0">
+     <title>My Recipe Website></title>
+     <link rel="stylesheet"href="style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+     <header>
+        <h1>Welcome to My Recipe website</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="desserts.html">Desserts</a>
+            <a href="salads.html">Salads</a>
+        </nav>
+     </header>
+     <section>
+          <h2>Popular recipes</h2>
+          <input type="text"id="searchbox"placeholder="search for recipes...."onkeyup="searchRecipes()">
+          
+          <div class="recipe-list"></div>
+          <a href="chocolate-cake.html"class="card-link">
+          <div class="recipe-card">
+            <img src="chocolate-cake.jpg"alt="chocolate-Cake">
+               <h3 class="recipe-title">chocolate cake</h3>
+               <p>A rich and moist chocolate dessert</p>
+          </div>
+          </a>
+          
+          <a href="fruit-salad.html"class="card-link">
+          <div class="recipe-card">
+            <img src="fruit-salad.jpg"alt="fruit-salad">
+               <h3 class="recipe-title">Salads</h3>
+               <p>A healthy mix of greens,veggies,and a light dressing.</p>
+          </div>
+        </a>
+     </section>
+     <footer>
+          <p>Made with love by Pratheeksha.s.shetty</p>
+     </footer>
+     </body>
+</html>
+<script>
+    function searchRecipes(){
+        const input=document.getElementById('searchbox').value.toLowerCase();
+        const cards=document.querySelectorAll('.recipe-card');
+        cards.forEach(card=>{
+            const title=card.querySelector('.recipe-title').textContent.toLowerCase();
+            const link=card.parentElement;
+            if(title.includes(input)){
+                link.style.display='block';
+            }else{
+                link.style.display='none';
+            }
+        });
+
+    }
+</script>
